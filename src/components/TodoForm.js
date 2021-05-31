@@ -3,11 +3,14 @@ import DatePicker from 'react-datepicker'
 
 const TodoForm = props => {
 
-  const handleChange = () => {
+  const [description, setDescription] = useState('')
 
+  const descriptionChange = (event) => {
+    setDescription(event.target.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
 
   }
 
@@ -15,6 +18,11 @@ const TodoForm = props => {
     <>
       <h1>New Item</h1>
       <form onSubmit={handleSubmit}>
+        <label>
+          Description
+          <input type="text" name="description" value={description} onChange={descriptionChange} />
+        </label>
+        <input type="submit" value="Add Item" />
       </form>
     </>
   )
