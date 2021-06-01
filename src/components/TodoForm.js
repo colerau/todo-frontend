@@ -12,7 +12,7 @@ const TodoForm = props => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const data = { description: 'description' };
+    const data = { description: description };
 
     fetch('http://localhost:3000/items', {
       method: 'POST', // or 'PUT'
@@ -23,7 +23,7 @@ const TodoForm = props => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('Success:', data);
+      console.log(data);
     })
     .catch((error) => {
       console.error('Error:', error);
