@@ -8,23 +8,16 @@ const TodoList = props => {
   useEffect(() => {
     let mounted = true
     getTodos()
-      // .then(items => {
-      //   if (mounted) {
-      //     setItems(items)
-      //   }
-      // })
       .then(json => {
         let descriptionsArray = json.items.map(obj => obj.description)
-        // for item in json {
-
-        // }
-        // debugger
 
         if (mounted) {
           setItems(descriptionsArray)
         }
       })
+
     return () => mounted = false
+    
   }, [])
 
   return (
