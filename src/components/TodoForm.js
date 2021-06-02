@@ -15,7 +15,7 @@ const TodoForm = props => {
     const data = { description: description };
 
     fetch('http://localhost:3000/items', {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
