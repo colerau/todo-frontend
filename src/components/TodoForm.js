@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker'
 const TodoForm = props => {
 
   const [description, setDescription] = useState('')
+  const [alert, setAlert] = useState(false)
 
   const descriptionChange = (event) => {
     setDescription(event.target.value)
@@ -24,6 +25,8 @@ const TodoForm = props => {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      setDescription('')
+      setAlert(true)
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -35,6 +38,7 @@ const TodoForm = props => {
     <>
       <h1>New Item</h1>
       <form onSubmit={handleSubmit}>
+        {alert && <h2 className="success">Submit Successful</h2>}
         <label>
           Description
           <input type="text" name="description" value={description} onChange={descriptionChange} />

@@ -41,3 +41,7 @@ ul {
   list-style-type: none;
   padding: 5px
 }
+
+h2.success {
+  color: #42f5a7
+}
