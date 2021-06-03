@@ -45,3 +45,7 @@ ul {
 h2.success {
   color: #42f5a7
 }
+
+.failure {
+  color: #f55742
+}
