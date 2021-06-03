@@ -3,16 +3,16 @@ import {getTodos} from '../actions/getTodos'
 
 const TodoList = props => {
 
-  const [items, setItems] = useState(["eat food"])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     let mounted = true
-    getTodos()
+    fetch('http://localhost:3000/items')
+      .then(data => data.json())
       .then(json => {
-        let descriptionsArray = json.items.map(obj => obj.description)
 
         if (mounted) {
-          setItems(descriptionsArray)
+          setItems(json)
         }
       })
 
@@ -25,7 +25,7 @@ const TodoList = props => {
       <h1>To Do List</h1>
       <ul>
         {items && items.map(item => 
-          <li>{item}</li>
+          <li key={item.id}>{item.description}</li>
         )}
       </ul>
     </div>
