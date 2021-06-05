@@ -12,6 +12,22 @@ const TodoForm = props => {
     setDescription(event.target.value)
   }
 
+  useEffect(() => {
+    if (successAlert) {
+      setTimeout(() => {
+        setSuccessAlert(false)
+      }, 2500)
+    }
+  }, [successAlert])
+
+  useEffect(() => {
+    if (failureAlert) {
+      setTimeout(() => {
+        setFailureAlert(false)
+      }, 2500)
+    }
+  }, [failureAlert])
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
